@@ -1,0 +1,102 @@
+
+LICENSE:
+--------------------------------------------------------------------------------
+LIGSITECS, a pocket identification method using Connolly surface
+http://scoppi.biotec.tu-dresden.de
+
+written by
+   Bingding Huang
+   Bioinformatics group
+   Biotec & Department of Computing
+   Tazberg 47, 01307
+   TU Dresden, Germany
+   Email bhuang@biotec.tu-dresden.de
+
+
+Copyright (C) LIGSITECS  Bingding Huang
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+--------------------------------------------------------------------------------
+
+INSTALL:
+ 1. Download BALL from the BALL website www.ballview.org
+ 2. Save BALL-1.1.1.tgz and unpack it: tar zxvf BALL-1.1.1.tgz
+ 2. change into the source directory: cd BALL-1.1.1/source
+ 3. run ./configure --help to see the options available
+ 4. run ./configure --disable-VIEW 
+ 5. make (wait and wait,finally successed)
+ 6. make install
+
+ If you do not get any errors, you have successfully installed the
+ Ball library, which is a requirement for Ligsitecsc. If you have
+ problems in compiling BALL, please send e-mail to the BALL
+ mailinglist at ball-discuss-l@postino.mpi-sb.mpg.de.
+
+ 7. Before running LIGSITEcsc, you have to export the library path of
+    BALL. Add the following two lines to your ~/.bashrc file. Replace
+    PUT THE BALL DIRECTORY HERE by the appropriate directoy path
+    ($BALL: the folder where BALL is installed).
+    Replace PUT THE RIGHT DIRECTORY HERE by the folder you find under 
+    $BALL/lib/. It is something like Linux-i386-g++_3.3.3(the last 
+    three numbers (3.3.3) will be different depending on your system),
+
+    export BALL=PUT THE BALL DIRECTORY HERE
+    export LD_LIBRARY_PATH=$BALL/lib/PUT THE RIGHT DIRECTORY HERE
+	
+    To make the updated changes in the bashrc file visible in your
+    shell, type in the shell
+
+    source ~/.bashrc
+
+    To verify that your path settings are correct, type in the shell
+
+    ls $LD_LIBRARY_PATH
+
+    and you should get as output libBALL.so
+
+ Now we are ready to progress to the installation of LIGSITEcsc
+
+ 8. Download lcs.tgz to the $BALL directory
+ 9. Change into the Ball directoy
+    cd $BALL
+ 10. Unpack the LIGSITE code:
+     tar zxvf lcs.tgz
+ 11. Change into the lcs directory
+     cd $BALL/lcs
+ 11. Type
+     make lcs 
+
+
+Usage of lcs:
+lcs -i <pdb_file_name>  [-s grid_space]  [-n number_of_pockets] [-t SSS_threshold] [-d surface_density] 
+
+-i: pdb_file_name, the file name of the protein, no default
+-s: grid space, default: 1.0 angstrom
+-n: number of pockets,default: 3
+-t: SSS_threshold, the threshold for SSS event, from 3 to 7, default: 6
+-d: surface density, the density (dots/A^2 ) to calculate the surface vertex, default: 0.5
+
+
+For example, you want to identify the pockets on "1dwd.pdb", just type 
+./lcs -i 1dwd.pdb
+
+you will get three standard pdb files: 
+"pocket.pdb", the identified pocket sites in pdb format
+"pocket_all.pdb", all the pocket sites in pdb format
+"pocket_r.pdb", all the grid points before clustering in pdb format
+
+and one python script file called "pocket.py" to visualize the pocket sites 
+using PyMol(http://pymol.sourceforge.net).
+If you have pymol on your machine, just type:
+pymol pocket.py
