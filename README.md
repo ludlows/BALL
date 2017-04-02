@@ -5,7 +5,7 @@ BALL project 1.1.1 bugs-free version
 
 This is the BALL-1.1.1 bugs-free version.
 
-I fixed some bugs. All rights are reserved by Ball-Project teem.
+I fixed some bugs. All rights are reserved by Ball-Project team.
 
 ## Install 
 
