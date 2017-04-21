@@ -22,14 +22,15 @@ $make install
 edit your path as the following:
 
 export BALL = your\_ball\_folder\_path
+
 export LD\_LIBRARY\_PATH = \$BALL/lib/Linux\_g++\_(your version)
+
 export PATH = "\$BALL:\$LD\_LIBRARY\_PATH:\$PATH"
 
 
-if you want to use ligsite algorithm, please used the following link.
+if you want to use ligsite algorithm, please visit the following link:
 
-http://projects.biotec.tu-dresden.de/pocket/download.html for ligsite algorithm
+http://projects.biotec.tu-dresden.de/pocket/download.html 
 
-
-Further information is available from team website:
+Further information is available in BALL-Team website:
   http://www.ball-project.org
