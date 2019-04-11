@@ -38,14 +38,23 @@ http://projects.biotec.tu-dresden.de/pocket/download.html
 Here is my procedure to compiling ligsite CSC code.
 
 $source ~/.bashrc  #for linux
+
+
 $source ~/.bash_profile # for Mac
 
 
 $cd BALL/lcs/
+
+
 $ make lcs
+
+
 for mac OS, remove the dependency of -lnsl in Makefile, before run $make lcs .
 
 # Note: this BALL code is useful only for ligsite CSC
 use the latest version of BALL project, if you have interests in developing new algorithm based on BALL.  
+
+
 Further information is available in BALL-Team website:
+
   http://www.ball-project.org
