@@ -901,9 +901,23 @@ namespace BALL
 			throw();
 
 		///
-		friend std::istream& getline(std::istream& s,  String& string,  char delimiter = '\n')
-			throw();
+		friend std::istream& getline(std::istream& s, String& str, char delimiter='\n')
+		throw(){
+		char c;
+		
+		str.destroy();
 
+		while (s.get(c)) 
+		{
+			if (c == delimiter) 
+			{
+				break;
+			}
+			str.append(1, c);
+		}
+
+		return s;
+	}
 		//@}
 
 		/// Constant empty string.

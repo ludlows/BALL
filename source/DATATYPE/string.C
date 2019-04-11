@@ -1332,24 +1332,24 @@ namespace BALL
 		return result;
 	}
 
-	istream& getline(istream& s, String& str, char delimiter)
-		throw()
-	{
-		char c;
+	// istream& getline(istream& s, String& str, char delimiter)
+	// 	throw()
+	// {
+	// 	char c;
 		
-		str.destroy();
+	// 	str.destroy();
 
-		while (s.get(c)) 
-		{
-			if (c == delimiter) 
-			{
-				break;
-			}
-			str.append(1, c);
-		}
+	// 	while (s.get(c)) 
+	// 	{
+	// 		if (c == delimiter) 
+	// 		{
+	// 			break;
+	// 		}
+	// 		str.append(1, c);
+	// 	}
 
-		return s;
-	}
+	// 	return s;
+	// }
 
 	void String::dump(ostream &s, Size depth) const
 		throw()

@@ -181,7 +181,8 @@ namespace BALL
 				return (_isnan(t) != 0);
 			#else
 			#	ifdef BALL_OS_DARWIN
-				return (__isnan(t) != 0);
+				// return (__isnan(t) != 0);
+				return (__builtin_isnan(t)!=0);
 			#	else
 				return (isnan(t) != 0);
 			#	endif
